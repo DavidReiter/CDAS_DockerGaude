@@ -26,7 +26,7 @@ jobs:
 
       - name: Test
         run: |
-        go mod init main.go
-        go test -v ./...
+          go build
+          go test -v ./...
 
     
