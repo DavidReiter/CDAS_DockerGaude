@@ -6,9 +6,6 @@ on:
   pull_request:
     branches: [ "master" ]
 
-env:
-  IMAGE_NAME: myhello
-
 jobs:
 
   build:
@@ -53,8 +50,8 @@ jobs:
           file: Dockerfile
           push: true
           tags: | 
-            ${{ env.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
-            ${{ env.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/myhello:${{ github.sha }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/myhello:latest
 
       - name: Test 
         run: go test -v ./...
