@@ -49,6 +49,9 @@ jobs:
           push: true
           tags: ${{ env.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
 
+      - name: Test 
+        run: go test -v ./...
+
       
 
     
